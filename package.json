@@ -1,0 +1,26 @@
+{
+  "name": "lazer-cats",
+  "version": "0.0.0",
+  "description": "Get Browserify to work...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kjplunkett/lazer-cats.git"
+  },
+  "keywords": [
+    "Browserify"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjplunkett/lazer-cats/issues"
+  },
+  "homepage": "https://github.com/kjplunkett/lazer-cats",
+  "devDependencies": {
+    "backbone": "^1.1.2",
+    "jquery": "^2.1.3"
+  }
+}
