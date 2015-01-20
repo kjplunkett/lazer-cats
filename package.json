@@ -21,6 +21,7 @@
   "homepage": "https://github.com/kjplunkett/lazer-cats",
   "devDependencies": {
     "backbone": "^1.1.2",
+    "browserify": "^8.1.1",
     "jquery": "^2.1.3"
   }
 }
