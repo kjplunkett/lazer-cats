@@ -1,4 +1,23 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+// Backbone Collection for Web Components
+
+'use strict';
+
+var Backbone = require('backbone');
+var Components = require('models/component');
+
+// Define the Components Collection
+var Components = Backbone.Collection.extend({
+	
+	// Set the model for this Collection to the Component
+	model: Components,
+
+	initialize: function () {
+		console.log("New Components Collection initialized");
+	}
+});
+module.exports = Components;
+},{"backbone":3,"models/component":2}],2:[function(require,module,exports){
 // Backbone Model for Web Component viewer
 
 'use strict';
@@ -24,7 +43,7 @@ var Component = Backbone.Model.extend ({
 });
 
 module.exports = Component;
-},{"backbone":2}],2:[function(require,module,exports){
+},{"backbone":3}],3:[function(require,module,exports){
 //     Backbone.js 1.1.2
 
 //     (c) 2010-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -1634,7 +1653,7 @@ module.exports = Component;
 
 }));
 
-},{"underscore":3}],3:[function(require,module,exports){
+},{"underscore":4}],4:[function(require,module,exports){
 //     Underscore.js 1.7.0
 //     http://underscorejs.org
 //     (c) 2009-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -3051,25 +3070,21 @@ module.exports = Component;
   }
 }.call(this));
 
-},{}],"components":[function(require,module,exports){
-// Backbone Collection for Web Components
-
+},{}],5:[function(require,module,exports){
+module.exports=[ { "name": "nav", "html": "components/nav/nav.html", "css": "components/nav/nav.css", "js": "components/nav/nav.js","img": "components/nav/img/", "about": "components/nav/about.md" } ]
+},{}],"app":[function(require,module,exports){
+// Main JS File - Puts it all together
 'use strict';
 
+// Node/Browserify Require
 var Backbone = require('backbone');
-var Components = require('models/component');
+var Components = require('collections/components');
+var testData = require('../testData.json');
 
-// Define the Components Collection
-var Components = Backbone.Collection.extend({
-	
-	// Set the model for this Collection to the Component
-	model: Components,
+// Initialize a new Components collection
+// Input the test data into the collection
+var components = new Components(testData);
 
-	initialize: function () {
-		console.log("New Components Collection initialized");
-	}
-});
-module.exports = Components;
-},{"backbone":2,"models/component":1}],"component":[function(require,module,exports){
-arguments[4][1][0].apply(exports,arguments)
-},{"backbone":2,"dup":1}]},{},[]);
+// Export the module 
+module.exports = components;
+},{"../testData.json":5,"backbone":3,"collections/components":1}]},{},[]);

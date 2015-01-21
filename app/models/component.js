@@ -18,7 +18,7 @@ var Component = Backbone.Model.extend ({
 	},	
 	// When the new model is created
 	initialize: function () {
-		console.log("New Component model initialized");
+		console.log('New Component model initialized');
 	}
 });
 
