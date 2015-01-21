@@ -7,13 +7,13 @@ var Backbone = require('backbone');
 var Components = require('models/component');
 
 // Define the Components Collection
-var Components = Backbone.Collection.extend({
+var Components = Backbone.Collection.extend ({
 	
 	// Set the model for this Collection to the Component
 	model: Components,
 
 	initialize: function () {
-		console.log("New Components Collection initialized");
+		console.log('New Components Collection initialized');
 	}
 });
 module.exports = Components;
@@ -29,6 +29,7 @@ var Component = Backbone.Model.extend ({
 
 	// Default attributes of each component 
 	defaults: {
+		id: 1,
 		name: '',
 		html: '',
 		css: '',
@@ -36,9 +37,10 @@ var Component = Backbone.Model.extend ({
 		img: '',
 		about: ''
 	},	
+	
 	// When the new model is created
 	initialize: function () {
-		console.log("New Component model initialized");
+		console.log('New Component model initialized');
 	}
 });
 
@@ -3071,7 +3073,7 @@ module.exports = Component;
 }.call(this));
 
 },{}],5:[function(require,module,exports){
-module.exports=[ { "name": "nav", "html": "components/nav/nav.html", "css": "components/nav/nav.css", "js": "components/nav/nav.js","img": "components/nav/img/", "about": "components/nav/about.md" } ]
+module.exports=[ { "id": 1, "name": "nav", "html": "components/nav/nav.html", "css": "components/nav/nav.css", "js": "components/nav/nav.js","img": "components/nav/img/", "about": "components/nav/about.md" } ]
 },{}],"app":[function(require,module,exports){
 // Main JS File - Puts it all together
 'use strict';
