@@ -1,4 +1,30 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+// Backbone Model for Web Component viewer
+
+'use strict';
+
+var Backbone = require('backbone');
+
+// Define the Component model 
+var Component = Backbone.Model.extend ({
+
+	// Default attributes of each component 
+	defaults: {
+		name: '',
+		html: '',
+		css: '',
+		js: '',
+		img: '',
+		about: ''
+	},	
+	// When the new model is created
+	initialize: function () {
+		console.log("New Component model initialized");
+	}
+});
+
+module.exports = Component;
+},{"backbone":2}],2:[function(require,module,exports){
 //     Backbone.js 1.1.2
 
 //     (c) 2010-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -1608,7 +1634,7 @@ require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof requ
 
 }));
 
-},{"underscore":2}],2:[function(require,module,exports){
+},{"underscore":3}],3:[function(require,module,exports){
 //     Underscore.js 1.7.0
 //     http://underscorejs.org
 //     (c) 2009-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -3025,11 +3051,25 @@ require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof requ
   }
 }.call(this));
 
-},{}],"app":[function(require,module,exports){
-// Main JS File - Puts it all together
+},{}],"components":[function(require,module,exports){
+// Backbone Collection for Web Components
+
 'use strict';
 
-// Require Backbone
 var Backbone = require('backbone');
-module.exports = function() { return Backbone };
-},{"backbone":1}]},{},[]);
+var Components = require('models/component');
+
+// Define the Components Collection
+var Components = Backbone.Collection.extend({
+	
+	// Set the model for this Collection to the Component
+	model: Components,
+
+	initialize: function () {
+		console.log("New Components Collection initialized");
+	}
+});
+module.exports = Components;
+},{"backbone":2,"models/component":1}],"component":[function(require,module,exports){
+arguments[4][1][0].apply(exports,arguments)
+},{"backbone":2,"dup":1}]},{},[]);
