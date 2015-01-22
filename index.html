@@ -15,20 +15,22 @@
 			<h2><small>Heading 2 small</small></h2>
 		</div>
 	</div>
+	
+	<!-- All Components will live within this <div> -->
+	<div id="components">
+			
+	</div>
 
-	<!-- Basic HTML for each component -->
+	<!-- HTML Template for each component -->
+	<script type="text/template" id="component-template">
 	<div class="row text-center">
-		<div class="col-md-2"><h4>Component 1</h4></div><hr>
+		<div class="col-md-2"><h4><%= name %></h4></div><hr>
 			<div class="row">
 				<div class="col-md-6">Example Code</div>
 				<div class="col-md-6">Rendered Code</div>
 			</div>
 	</div>
-	
-	<!-- Testing Component View -->
-	<div id="testingCompView"> 
-		
-	</div>
+	</script>
 
 </div>
 <!-- The bundled js file via Browserify -->

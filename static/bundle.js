@@ -51,11 +51,17 @@ module.exports = Component;
 'use strict';
 
 var $ = require('jquery');
+var _ = require('underscore');
 var Backbone = require('backbone');
+
+// Define the ComponentView 
 var ComponentView = Backbone.View.extend ({
 	
-	// Bind view to testing <div>
-	el: '#testingCompView',
+	// Bind view to components <div>
+	el: '#components',
+
+	// Component View template
+	componentTemplate: _.template( $('#component-template').html() ),
 
 	// When this view is created
 	initialize: function () {
@@ -66,7 +72,8 @@ var ComponentView = Backbone.View.extend ({
 	// Render
 	render: function () {
 		console.log('Render called');
-		this.$el.html(this.model.get('name'));
+		//this.$el.html("hello world");
+		this.$el.html( this.componentTemplate({ name: this.model.get('name') }) );
 		// Why return this?
 		return this;
 	}
@@ -74,7 +81,7 @@ var ComponentView = Backbone.View.extend ({
 });
 
 module.exports = ComponentView;
-},{"backbone":4,"jquery":6}],4:[function(require,module,exports){
+},{"backbone":4,"jquery":6,"underscore":7}],4:[function(require,module,exports){
 //     Backbone.js 1.1.2
 
 //     (c) 2010-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -12309,15 +12316,19 @@ return jQuery;
 }));
 
 },{}],7:[function(require,module,exports){
+arguments[4][5][0].apply(exports,arguments)
+},{"dup":5}],8:[function(require,module,exports){
 module.exports=[ { "id": 1, "name": "nav", "html": "components/nav/nav.html", "css": "components/nav/nav.css", "js": "components/nav/nav.js","img": "components/nav/img/", "about": "components/nav/about.md" } ]
 },{}],"app":[function(require,module,exports){
 // Main JS File - Puts it all together
+
 'use strict';
 
 // Node/Browserify Require
+
 var $ = require('jquery');
+var _ = require('underscore');
 var Backbone = require('backbone');
-// Why do this? What does it mean?
 Backbone.$ = $;
 
 var Components = require('collections/components');
@@ -12327,7 +12338,7 @@ var ComponentView = require('views/componentView');
 // Initialize a new Components collection
 // Input the test data into the collection
 var components = new Components(testData);
-
+	
 // Export the module 
 module.exports = { components: components, ComponentView: ComponentView };
-},{"../testData.json":7,"backbone":4,"collections/components":1,"jquery":6,"views/componentView":3}]},{},[]);
+},{"../testData.json":8,"backbone":4,"collections/components":1,"jquery":6,"underscore":7,"views/componentView":3}]},{},[]);
