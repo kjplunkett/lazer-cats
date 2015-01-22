@@ -12,12 +12,13 @@ var ComponentView = Backbone.View.extend ({
 	// When this view is created
 	initialize: function () {
 		console.log('New Component view initialized');
+		this.listenTo(this.model, 'change:name', this.render);
 	},
 
 	// Render
 	render: function () {
 		console.log('Render called');
-		this.$el.html('Hey');
+		this.$el.html(this.model.get('name'));
 		// Why return this?
 		return this;
 	}

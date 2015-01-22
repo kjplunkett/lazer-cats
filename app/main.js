@@ -4,6 +4,7 @@
 // Node/Browserify Require
 var $ = require('jquery');
 var Backbone = require('backbone');
+// Why do this? What does it mean?
 Backbone.$ = $;
 
 var Components = require('collections/components');

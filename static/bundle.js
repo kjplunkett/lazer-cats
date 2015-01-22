@@ -60,12 +60,13 @@ var ComponentView = Backbone.View.extend ({
 	// When this view is created
 	initialize: function () {
 		console.log('New Component view initialized');
+		this.listenTo(this.model, 'change:name', this.render);
 	},
 
 	// Render
 	render: function () {
 		console.log('Render called');
-		this.$el.html('Hey');
+		this.$el.html(this.model.get('name'));
 		// Why return this?
 		return this;
 	}
@@ -12316,6 +12317,7 @@ module.exports=[ { "id": 1, "name": "nav", "html": "components/nav/nav.html", "c
 // Node/Browserify Require
 var $ = require('jquery');
 var Backbone = require('backbone');
+// Why do this? What does it mean?
 Backbone.$ = $;
 
 var Components = require('collections/components');
