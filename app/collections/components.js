@@ -12,7 +12,7 @@ var Components = Backbone.Collection.extend ({
 	model: Components,
 
 	initialize: function () {
-		console.log('New Components Collection initialized');
+		console.log('New Components collection initialized');
 	}
 });
 module.exports = Components;
