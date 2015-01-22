@@ -37,7 +37,7 @@ var Component = Backbone.Model.extend ({
 		img: '',
 		about: ''
 	},	
-	
+
 	// When the new model is created
 	initialize: function () {
 		console.log('New Component model initialized');
@@ -63,6 +63,9 @@ var ComponentView = Backbone.View.extend ({
 	// Component View template
 	componentTemplate: _.template( $('#component-template').html() ),
 
+	// Testing another template for toJSON in the view
+	template: '<h1><%= css %><hr></h1>',
+	
 	// When this view is created
 	initialize: function () {
 		console.log('New Component view initialized');
@@ -72,8 +75,8 @@ var ComponentView = Backbone.View.extend ({
 	// Render
 	render: function () {
 		console.log('Render called');
-		//this.$el.html("hello world");
-		this.$el.html( this.componentTemplate({ name: this.model.get('name') }) );
+		var tmpl = _.template(this.template);
+		this.$el.html(tmpl(this.model.toJSON()));
 		// Why return this?
 		return this;
 	}
@@ -12318,7 +12321,7 @@ return jQuery;
 },{}],7:[function(require,module,exports){
 arguments[4][5][0].apply(exports,arguments)
 },{"dup":5}],8:[function(require,module,exports){
-module.exports=[ { "id": 1, "name": "nav", "html": "components/nav/nav.html", "css": "components/nav/nav.css", "js": "components/nav/nav.js","img": "components/nav/img/", "about": "components/nav/about.md" } ]
+module.exports=[	{ "id": 1, "name": "nav", "html": "components/nav/nav.html", "css": "components/nav/nav.css", "js": "components/nav/nav.js","img": "components/nav/img/", "about": "components/nav/about.md" } ]
 },{}],"app":[function(require,module,exports){
 // Main JS File - Puts it all together
 
@@ -12334,11 +12337,14 @@ Backbone.$ = $;
 var Components = require('collections/components');
 var testData = require('../testData.json');
 var ComponentView = require('views/componentView');
+//var ComponentsView = require('views/componentsView');
 
 // Initialize a new Components collection
 // Input the test data into the collection
 var components = new Components(testData);
 	
 // Export the module 
-module.exports = { components: components, ComponentView: ComponentView };
+module.exports = { 
+	components: components, 
+	ComponentView: ComponentView };
 },{"../testData.json":8,"backbone":4,"collections/components":1,"jquery":6,"underscore":7,"views/componentView":3}]},{},[]);

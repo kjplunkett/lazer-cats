@@ -15,6 +15,9 @@ var ComponentView = Backbone.View.extend ({
 	// Component View template
 	componentTemplate: _.template( $('#component-template').html() ),
 
+	// Testing another template for toJSON in the view
+	template: '<h1><%= css %><hr></h1>',
+	
 	// When this view is created
 	initialize: function () {
 		console.log('New Component view initialized');
@@ -24,8 +27,8 @@ var ComponentView = Backbone.View.extend ({
 	// Render
 	render: function () {
 		console.log('Render called');
-		//this.$el.html("hello world");
-		this.$el.html( this.componentTemplate({ name: this.model.get('name') }) );
+		var tmpl = _.template(this.template);
+		this.$el.html(tmpl(this.model.toJSON()));
 		// Why return this?
 		return this;
 	}

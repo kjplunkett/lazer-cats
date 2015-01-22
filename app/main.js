@@ -12,10 +12,13 @@ Backbone.$ = $;
 var Components = require('collections/components');
 var testData = require('../testData.json');
 var ComponentView = require('views/componentView');
+//var ComponentsView = require('views/componentsView');
 
 // Initialize a new Components collection
 // Input the test data into the collection
 var components = new Components(testData);
 	
 // Export the module 
-module.exports = { components: components, ComponentView: ComponentView };
+module.exports = { 
+	components: components, 
+	ComponentView: ComponentView };
