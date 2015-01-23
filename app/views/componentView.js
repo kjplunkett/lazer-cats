@@ -16,7 +16,7 @@ var ComponentView = Backbone.View.extend ({
 	componentTemplate: _.template( $('#component-template').html() ),
 
 	// Testing another template for toJSON in the view
-	template: '<h1><%= css %><hr></h1>',
+	template: '<h2><%= js  %><hr></h2>',
 	
 	// When this view is created
 	initialize: function () {
